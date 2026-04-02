@@ -7,206 +7,9 @@
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --accent: #e94560;
-        --dark: #0f0f1a;
-        --text: #1a1a2e;
-        --muted: #666;
-        --bg: #f8f8fc;
-        --white: #ffffff;
-        --nav-height: 64px;
-      }
-
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-
-      body {
-        font-family: 'Noto Sans SC', sans-serif;
-        background-color: var(--bg);
-        color: var(--text);
-      }
-
-      /* 导航栏 */
-      nav {
-        position: fixed;
-        top: 0; left: 0; right: 0;
-        height: var(--nav-height);
-        background: rgba(255,255,255,0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(0,0,0,0.06);
-        padding: 0 24px;
-        z-index: 100;
-      }
-      .nav-inner {
-        max-width: 1000px;
-        width: 100%;
-        margin: 0 auto;
-        height: var(--nav-height);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        font-size: 18px;
-        font-weight: 900;
-        letter-spacing: -0.5px;
-        color: var(--text);
-      }
-      .logo span { color: var(--accent); }
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        margin-left: 32px;
-        font-size: 14px;
-        transition: color 0.2s;
-      }
-      .nav-links a:hover { color: var(--accent); }
-
-      /* 页面头部 */
-      .page-hero {
-        margin-top: var(--nav-height);
-        background: var(--dark);
-        padding: 80px 48px;
-        text-align: center;
-        animation: fadeUp 0.8s ease both;
-      }
-      .page-tag {
-        display: inline-block;
-        color: var(--accent);
-        font-size: 12px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 16px;
-      }
-      .page-hero h1 {
-        color: white;
-        font-size: clamp(32px, 5vw, 56px);
-        font-weight: 900;
-        letter-spacing: -1px;
-        margin-bottom: 16px;
-      }
-      .page-hero p {
-        color: rgba(255,255,255,0.5);
-        font-size: 15px;
-        font-weight: 300;
-      }
-
-      /* 表单区域 */
-      .content {
-        max-width: 600px;
-        margin: 80px auto;
-        padding: 0 48px;
-        animation: fadeUp 0.8s ease 0.2s both;
-      }
-
-      .form-card {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 48px;
-        border: 1px solid rgba(0,0,0,0.06);
-        box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-      }
-
-      .form-group { margin-bottom: 24px; }
-      .form-group label {
-        display: block;
-        color: var(--text);
-        margin-bottom: 8px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-      }
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1.5px solid #e8e8f0;
-        border-radius: 8px;
-        font-family: 'Noto Sans SC', sans-serif;
-        font-size: 14px;
-        color: var(--text);
-        background: var(--bg);
-        box-sizing: border-box;
-        transition: border-color 0.2s, box-shadow 0.2s;
-        outline: none;
-      }
-      .form-group input:focus,
-      .form-group textarea:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(233,69,96,0.1);
-        background: white;
-      }
-      .form-group textarea {
-        height: 140px;
-        resize: vertical;
-        line-height: 1.8;
-      }
-
-      .btn {
-        width: 100%;
-        background-color: var(--accent);
-        color: white;
-        padding: 14px 32px;
-        border: none;
-        border-radius: 8px;
-        font-size: 15px;
-        font-family: 'Noto Sans SC', sans-serif;
-        font-weight: 700;
-        cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-      }
-      .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(233,69,96,0.35);
-        background: #d63350;
-      }
-
-      /* 页脚 */
-      footer {
-        background: var(--white);
-        color: var(--muted);
-        padding: 16px;
-        border-top: 1px solid rgba(0,0,0,0.08);
-      }
-      .footer-inner {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      footer .footer-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 13px;
-        margin: 0 16px;
-        transition: color 0.2s;
-      }
-      footer .footer-links a:hover { color: black; }
-      footer p { font-size: 13px; }
-
-      /* 动画 */
-      @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(24px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-
-      /* 手机端 */
-      @media (max-width: 768px) {
-        nav { padding: 0 20px; }
-        .nav-links a { margin-left: 16px; font-size: 13px; }
-        .page-hero { padding: 60px 24px; }
-        .content { padding: 0 20px; margin: 48px auto; }
-        .form-card { padding: 32px 24px; }
-        .footer-inner {
-          flex-direction: column;
-          gap: 8px;
-          text-align: center;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="a-c.css">
+    <link rel="stylesheet" href="contact.css">
   </head>
   <body>
 
@@ -232,26 +35,55 @@
       <p>ご質問やお仕事のご依頼など、お気軽にお問い合わせください</p>
     </div>
 
-    <div class="content">
+   <!-- <div class="content">
       <div class="form-card">
         <form action="https://formspree.io/f/xaqperpq" method="POST">
           <div class="form-group">
             <label>お名前</label>
-            <input type="text" name="name" placeholder="お名前を入力してください">
+            <input type="text" name="name" placeholder="お名前を入力してください" required title="お名前を入力してください">
           </div>
           <div class="form-group">
             <label>メールアドレス</label>
-            <input type="email" name="email" placeholder="メールアドレスを入力してください">
+            <input type="email" name="email" placeholder="メールアドレスを入力してください" required title="メールアドレスを入力してください">
           </div>
           <div class="form-group">
             <label>メッセージ内容</label>
-            <textarea name="message" placeholder="メッセージを入力してください"></textarea>
+            <textarea name="message" placeholder="メッセージを入力してください" required></textarea>
           </div>
+          <input type="text" name="_gotcha" style="display:none">
           <button class="btn" type="submit">メッセージを送る</button>
         </form>
       </div>
     </div>
+    -->
+    <div class="content">
+  <div class="form-card">
+    <form id="contactForm" action="https://formspree.io/f/xaqperpq" method="POST" novalidate>
+      
+      <div class="form-group">
+        <label>お名前</label>
+        <input type="text" name="name" id="name" placeholder="お名前を入力してください">
+        <div class="error-message" id="nameError"></div>
+      </div>
 
+      <div class="form-group">
+        <label>メールアドレス</label>
+        <input type="email" name="email" id="email" placeholder="メールアドレスを入力してください">
+        <div class="error-message" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>メッセージ内容</label>
+        <textarea name="message" id="message" placeholder="メッセージを入力してください"></textarea>
+        <div class="error-message" id="messageError"></div>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button class="btn" type="submit">メッセージを送る</button>
+    </form>
+  </div>
+</div>
     <footer>
       <div class="footer-inner">
         <p>© 2026 株式会社天典</p>
@@ -262,6 +94,59 @@
         </div>
       </div>
     </footer>
+<script>
+const form = document.getElementById("contactForm");
 
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let isValid = true;
+
+  // 取得
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  // エラー表示エリア
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const messageError = document.getElementById("messageError");
+
+  // リセット
+  [name, email, message].forEach(el => el.classList.remove("error"));
+  [nameError, emailError, messageError].forEach(el => el.textContent = "");
+
+  // 名前チェック
+  if (name.value.trim() === "") {
+    name.classList.add("error");
+    nameError.textContent = "お名前を入力してください";
+    isValid = false;
+  }
+
+  // メールチェック
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+  if (email.value.trim() === "") {
+    email.classList.add("error");
+    emailError.textContent = "メールアドレスを入力してください";
+    isValid = false;
+  } else if (!emailPattern.test(email.value)) {
+    email.classList.add("error");
+    emailError.textContent = "正しいメールアドレス形式で入力してください";
+    isValid = false;
+  }
+
+  // メッセージチェック
+  if (message.value.trim() === "") {
+    message.classList.add("error");
+    messageError.textContent = "メッセージを入力してください";
+    isValid = false;
+  }
+
+  // OKなら送信
+  if (isValid) {
+    form.submit();
+  }
+});
+</script>
   </body>
 </html>

@@ -1,0 +1,80 @@
+/* 表单区域 */
+.content {
+max-width: 600px;
+margin: 80px auto;
+padding: 0 48px;
+animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.form-card {
+background: var(--white);
+border-radius: 16px;
+padding: 48px;
+border: 1px solid rgba(0,0,0,0.06);
+box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+
+.form-group { margin-bottom: 24px; }
+.form-group label {
+display: block;
+color: var(--text);
+margin-bottom: 8px;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.5px;
+}
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 12px 16px;
+border: 1.5px solid #e8e8f0;
+border-radius: 8px;
+font-family: 'Noto Sans SC', sans-serif;
+font-size: 14px;
+color: var(--text);
+background: var(--bg);
+box-sizing: border-box;
+transition: border-color 0.2s, box-shadow 0.2s;
+outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+border-color: var(--accent);
+box-shadow: 0 0 0 3px rgba(233,69,96,0.1);
+background: white;
+}
+.form-group textarea {
+height: 140px;
+resize: vertical;
+line-height: 1.8;
+}
+
+.btn {
+width: 100%;
+background-color: var(--accent);
+color: white;
+padding: 14px 32px;
+border: none;
+border-radius: 8px;
+font-size: 15px;
+font-family: 'Noto Sans SC', sans-serif;
+font-weight: 700;
+cursor: pointer;
+transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 24px rgba(233,69,96,0.35);
+background: #d63350;
+      }
+/* --表单优化--*/
+.error {
+  border-color: #e74c3c;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+  transition: all 0.2s ease;
+}

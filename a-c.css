@@ -1,0 +1,29 @@
+  /* 页面头部 */
+      .page-hero {
+        margin-top: var(--nav-height);
+        background: var(--dark);
+        padding: 80px 48px;
+        text-align: center;
+        animation: fadeUp 0.8s ease both;
+      }
+      .page-tag {
+        display: inline-block;
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 {
+        color: white;
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 900;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+      }
+      .page-hero p {
+        color: rgba(255,255,255,0.5);
+        font-size: 15px;
+        font-weight: 300;
+      }
